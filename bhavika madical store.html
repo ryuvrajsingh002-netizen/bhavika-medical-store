@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bhavika Medical Store | Bawarla</title>
+
+    <meta name="description"
+        content="Bhavika Medical Store, Bawarla - सभी प्रकार की दवाइयाँ, BP और Sugar की जाँच की सुविधा। अपॉइंटमेंट बुक करें।">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8f6;
+            color: #222;
+        }
+
+        /* HEADER */
+        header {
+            background: #087f5b;
+            color: white;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #d8ffe9;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #b7ffdb;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 530px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(0,80,55,0.78),
+                    rgba(0,50,35,0.78)
+                ),
+                url("https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #b8ffda;
+        }
+
+        .hero p {
+            font-size: 21px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            margin: 6px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .call {
+            background: #ffffff;
+            color: #087f5b;
+        }
+
+        .book {
+            background: #ffb703;
+            color: #073b2b;
+        }
+
+        /* COMMON SECTION */
+        section {
+            padding: 60px 7%;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .title h2 {
+            font-size: 32px;
+            color: #087f5b;
+            margin-bottom: 10px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        /* SERVICES */
+        .services {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #087f5b;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* MEDICINES */
+        .medicine-section {
+            background: white;
+        }
+
+        .medicine-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .medicine {
+            background: #f4faf7;
+            border-left: 5px solid #087f5b;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .medicine h3 {
+            color: #087f5b;
+            margin-bottom: 8px;
+        }
+
+        .medicine p {
+            color: #666;
+        }
+
+        /* APPOINTMENT */
+        .appointment-section {
+            background: #eafbf3;
+        }
+
+        .appointment-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #087f5b;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1.5px solid #c9e6da;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #087f5b;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .appointment-box .btn {
+            width: 100%;
+            text-align: center;
+            margin: 6px 0 0 0;
+        }
+
+        .form-note {
+            text-align: center;
+            color: #777;
+            font-size: 13.5px;
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        .form-success {
+            display: none;
+            background: #d3f9e5;
+            color: #0b6b3f;
+            padding: 14px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 16px;
+            font-weight: bold;
+        }
+
+        /* ABOUT */
+        .about {
+            text-align: center;
+        }
+
+        .about-box {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .about-box p {
+            line-height: 1.9;
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #073b2b;
+            color: white;
+            text-align: center;
+        }
+
+        .contact .title h2 {
+            color: white;
+        }
+
+        .contact-info {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .number {
+            color: #b8ffda;
+            font-weight: bold;
+        }
+
+        /* DISCLAIMER */
+        .disclaimer {
+            background: #fff8e1;
+            padding: 25px 7%;
+            text-align: center;
+            color: #664d03;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #031c14;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 5px 8px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 480px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 45px 5%;
+            }
+
+            .title h2 {
+                font-size: 28px;
+            }
+
+            .appointment-box {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        💊 Bhavika <span>Medical Store</span>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#medicines">Medicines</a>
+        <a href="#appointment">Appointment</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div>
+
+        <h1>
+            Welcome to
+            <span>Bhavika Medical Store</span>
+        </h1>
+
+        <p>
+            Bawarla गाँव, ईडवा के पास<br>
+            दवाइयाँ एवं स्वास्थ्य जाँच की सुविधा
+        </p>
+
+        <a
+            class="btn whatsapp"
+            href="https://wa.me/919667680582"
+            target="_blank">
+            💬 WhatsApp करें
+        </a>
+
+        <a
+            class="btn call"
+            href="tel:+919667680582">
+            📞 Call करें
+        </a>
+
+        <a
+            class="btn book"
+            href="#appointment">
+            📅 अपॉइंटमेंट बुक करें
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="title">
+
+        <h2>हमारी सुविधाएँ</h2>
+
+        <p>
+            आपकी जरूरत के अनुसार मेडिकल एवं स्वास्थ्य संबंधी सुविधाएँ
+        </p>
+
+    </div>
+
+
+    <div class="services">
+
+        <div class="service-card">
+
+            <div class="icon">💊</div>
+
+            <h3>सभी प्रकार की दवाइयाँ</h3>
+
+            <p>
+                विभिन्न सामान्य स्वास्थ्य समस्याओं के लिए
+                दवाइयाँ उपलब्ध।
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="icon">🩺</div>
+
+            <h3>BP की जाँच</h3>
+
+            <p>
+                दुकान पर Blood Pressure की जाँच की सुविधा।
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="icon">🩸</div>
+
+            <h3>Sugar की जाँच</h3>
+
+            <p>
+                Blood Sugar की जाँच की सुविधा उपलब्ध।
+            </p>
+
+        </div>
+
+
+        <div class="service-card">
+
+            <div class="icon">🏥</div>
+
+            <h3>स्वास्थ्य संबंधी दवाइयाँ</h3>
+
+            <p>
+                Migraine, BP, Sugar और अन्य स्वास्थ्य
+                जरूरतों की दवाइयाँ उपलब्ध।
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MEDICINES -->
+
+<section class="medicine-section" id="medicines">
+
+    <div class="title">
+
+        <h2>दवाइयों की उपलब्धता</h2>
+
+        <p>
+            दुकान पर विभिन्न प्रकार की दवाइयाँ उपलब्ध हैं
+        </p>
+
+    </div>
+
+
+    <div class="medicine-grid">
+
+        <div class="medicine">
+            <h3>🧠 Migraine</h3>
+            <p>
+                माइग्रेन से संबंधित दवाइयाँ।
+            </p>
+        </div>
+
+
+        <div class="medicine">
+            <h3>❤️ BP</h3>
+            <p>
+                Blood Pressure से संबंधित दवाइयाँ।
+            </p>
+        </div>
+
+
+        <div class="medicine">
+            <h3>🩸 Diabetes</h3>
+            <p>
+                Sugar/Diabetes से संबंधित दवाइयाँ।
+            </p>
+        </div>
+
+
+        <div class="medicine">
+            <h3>🏥 Paralysis</h3>
+            <p>
+                लकवे से संबंधित दवाइयों के लिए
+                दुकान से संपर्क करें।
+            </p>
+        </div>
+
+
+        <div class="medicine">
+            <h3>💊 General Medicines</h3>
+            <p>
+                सामान्य स्वास्थ्य समस्याओं की दवाइयाँ।
+            </p>
+        </div>
+
+
+        <div class="medicine">
+            <h3>🩹 अन्य दवाइयाँ</h3>
+            <p>
+                उपलब्धता के लिए फोन करके जानकारी लें।
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- APPOINTMENT BOOKING -->
+
+<section class="appointment-section" id="appointment">
+
+    <div class="title">
+
+        <h2>अपॉइंटमेंट बुक करें</h2>
+
+        <p>
+            नीचे फॉर्म भरें, बटन दबाते ही WhatsApp पर आपकी जानकारी भेज दी जाएगी
+        </p>
+
+    </div>
+
+    <div class="appointment-box">
+
+        <form id="appointmentForm">
+
+            <div class="form-group">
+                <label for="name">आपका नाम *</label>
+                <input type="text" id="name" name="name" placeholder="अपना पूरा नाम लिखें" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">मोबाइल नंबर *</label>
+                <input type="tel" id="phone" name="phone" placeholder="10 अंकों का मोबाइल नंबर" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date">तारीख *</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">समय *</label>
+                <select id="time" name="time" required>
+                    <option value="">समय चुनें</option>
+                    <option value="सुबह (9 AM - 12 PM)">सुबह (9 AM - 12 PM)</option>
+                    <option value="दोपहर (12 PM - 3 PM)">दोपहर (12 PM - 3 PM)</option>
+                    <option value="शाम (3 PM - 6 PM)">शाम (3 PM - 6 PM)</option>
+                    <option value="रात (6 PM - 9 PM)">रात (6 PM - 9 PM)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">जरूरत / कारण</label>
+                <textarea id="reason" name="reason" placeholder="जैसे: BP जाँच, Sugar जाँच, दवाई की जरूरत आदि (वैकल्पिक)"></textarea>
+            </div>
+
+            <button type="submit" class="btn whatsapp">
+                💬 WhatsApp पर अपॉइंटमेंट भेजें
+            </button>
+
+        </form>
+
+        <div class="form-success" id="formSuccess">
+            ✅ आपकी जानकारी तैयार है, WhatsApp खुल रहा है। कृपया मैसेज भेज दें।
+        </div>
+
+        <p class="form-note">
+            फॉर्म भरने के बाद आप सीधे WhatsApp पर जानकारी भेज सकेंगे।
+            अपॉइंटमेंट confirm होने के लिए आपको हमारी तरफ से रिप्लाई का इंतज़ार करना होगा।
+            आप चाहें तो सीधे फोन भी कर सकते हैं:
+            <a href="tel:+919667680582" class="number" style="color:#087f5b;">9667680582</a>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="title">
+
+        <h2>Bhavika Medical Store के बारे में</h2>
+
+    </div>
+
+
+    <div class="about-box">
+
+        <p>
+            <strong>Bhavika Medical Store</strong>
+            Bawarla गाँव में, ईडवा के पास स्थित एक मेडिकल स्टोर है।
+            यहाँ विभिन्न प्रकार की दवाइयाँ उपलब्ध हैं।
+            दुकान पर BP और Blood Sugar की जाँच की सुविधा भी उपलब्ध है।
+        </p>
+
+        <br>
+
+        <p>
+            <strong>संचालक:</strong>
+            जयमल सिंह राठौर
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="title">
+
+        <h2>हमसे संपर्क करें</h2>
+
+        <p style="color:#ddd;">
+            दवाई या उपलब्धता के बारे में जानकारी के लिए संपर्क करें
+        </p>
+
+    </div>
+
+
+    <div class="contact-info">
+
+        <p>
+            📍 <strong>पता:</strong>
+            Bawarla गाँव, ईडवा के पास, राजस्थान
+        </p>
+
+        <p>
+            👨‍⚕️ <strong>संचालक:</strong>
+            जयमल सिंह राठौर
+        </p>
+
+        <p>
+            📞
+            <a
+                class="number"
+                href="tel:+919667680582">
+                9667680582
+            </a>
+        </p>
+
+        <p>
+            📞
+            <a
+                class="number"
+                href="tel:+918824389634">
+                8824389634
+            </a>
+        </p>
+
+
+        <br>
+
+
+        <a
+            class="btn whatsapp"
+            href="https://wa.me/919667680582"
+            target="_blank">
+            💬 WhatsApp पर संपर्क करें
+        </a>
+
+        <a
+            class="btn call"
+            href="tel:+919667680582">
+            📞 अभी Call करें
+        </a>
+
+        <a
+            class="btn book"
+            href="#appointment">
+            📅 अपॉइंटमेंट बुक करें
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- MEDICAL DISCLAIMER -->
+
+<div class="disclaimer">
+
+    <strong>महत्वपूर्ण सूचना:</strong><br>
+
+    दवाइयों का उपयोग डॉक्टर/योग्य स्वास्थ्य विशेषज्ञ की सलाह के अनुसार करें।
+    किसी गंभीर बीमारी या आपात स्थिति में तुरंत योग्य चिकित्सक या अस्पताल से संपर्क करें।
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 Bhavika Medical Store, Bawarla.
+        All Rights Reserved.
+    </p>
+
+    <p style="margin-top:8px;">
+        जयमल सिंह राठौर
+    </p>
+
+</footer>
+
+
+<script>
+    const appointmentForm = document.getElementById('appointmentForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    appointmentForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        const reason = document.getElementById('reason').value.trim();
+
+        let message = "नमस्ते, मुझे Bhavika Medical Store में अपॉइंटमेंट बुक करनी है।%0A%0A";
+        message += "नाम: " + encodeURIComponent(name) + "%0A";
+        message += "मोबाइल नंबर: " + encodeURIComponent(phone) + "%0A";
+        message += "तारीख: " + encodeURIComponent(date) + "%0A";
+        message += "समय: " + encodeURIComponent(time) + "%0A";
+
+        if (reason) {
+            message += "कारण: " + encodeURIComponent(reason) + "%0A";
+        }
+
+        const whatsappUrl = "https://wa.me/919667680582?text=" + message;
+
+        formSuccess.style.display = "block";
+
+        window.open(whatsappUrl, "_blank");
+    });
+</script>
+
+</body>
+</html>
